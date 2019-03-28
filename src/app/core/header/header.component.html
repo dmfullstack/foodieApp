@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark fixed-top ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/restaurants/collection">FoodieGoodie</a>
+    </div>
+
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" #location [value]="location.value" placeholder="Search Location" aria-label="Search Location" name="location">
+        <input class="form-control mr-sm-2" type="search" #cuisine [value]="cuisine.value" placeholder="Search Cuisine" aria-label="Search Cuisines" name="cuisine">
+        <button class="btn btn-default btn-warning my-2 my-sm-0" routerLink="/restaurants/listBySearch">Search</button>
+      </form>
+
+    <form class="navbar-form navbar-right" *ngIf="!authService.isLoggedIn()">
+      <button type="button" class="btn btn-default btn-warning" routerLink="/auth/login">
+        <span class="glyphicon glyphicon-log-in">SignIn</span>
+      </button>
+
+      <button type="button" class="btn btn-default btn-warning" routerLink="/auth/register">
+        <span class="glyphicon glyphicon-user">Signup</span>
+      </button>
+    </form>
+    <form class="navbar-form navbar-right" *ngIf="authService.isLoggedIn()">
+      <button type="button" class="btn btn-default btn-warning" routerLink="/restaurants/listByFavourite">
+        <span class="glyphicon glyphicon-log-out">Favourites</span>
+      </button>
+      <button type="button" class="btn btn-default btn-warning">
+        <span class="glyphicon glyphicon-log-out">Logout</span>
+      </button>
+      </form>
+  </div>
+
+</nav><!--  -->

@@ -1,0 +1,30 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h2>{{restaurant.name}}</h2>
+  </div>
+<img class="card-img-top" [src]="restaurant.featured_image" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title" *ngIf="restaurant.location">{{restaurant.location.address}}, {{restaurant.location.city}}</h5><h5 *ngIf="restaurant.location?.zipcode!=0">, {{restaurant.location.zipcode}}</h5>
+    <h5 class="card-title" *ngIf="!restaurant.location">{{restaurant.address}}</h5>
+    <p class="card-text">Average cost for two {{restaurant.average_cost_for_two}} {{restaurant.currency}}</p>
+    <a *ngIf = "authService.isLoggedIn() && showAdd" (click)="addToFavourites()" class="btn btn-primary">Add to Favourites</a>
+    <a *ngIf = "authService.isLoggedIn() && showRemove" (click)="deleteFromFavourites()" class="btn btn-primary">Remove from Favourites</a>
+    <a class="btn btn-primary" (click)="goBack()">Back</a>
+  </div>
+<h5 class="card-title">Reviews</h5>
+<p *ngIf = "!restaurant.review">No review yet !!</p>
+<ul class="list-group list-group-flush" *ngIf = "restaurant.review">
+    <li class="list-group-item" >
+      <p>{{restaurant.review}}</p>
+    </li>
+</ul>
+<ul class="list-group list-group-flush" *ngIf = "showAddReviewSection">
+  <li class="list-group-item" >
+    <input class="form-control mr-sm-2" type="text" #reviewText placeholder="Add Review" aria-label="Add Review" name="reviewText">
+    <button class="btn btn-default btn-primary my-2 my-sm-0" (click)="addReview(reviewText.value)">Add Review</button>
+  </li>
+</ul>
+  <div class="card-footer text-muted">
+    Cuisines : {{restaurant.cuisines}}
+  </div>
+</div>

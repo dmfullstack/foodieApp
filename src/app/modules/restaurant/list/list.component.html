@@ -1,0 +1,11 @@
+
+<div class="flex-container">
+	<div class="card text-center" style="width: 20rem;" 
+	*ngFor="let restaurant of restaurants">
+	  <img class="card-img-top" [src]="restaurant.featured_image" alt="Card image cap"/>
+	  <div class="card-body">
+		<h5>{{restaurant.name}}</h5>
+		<p class="card-text">{{restaurant.location?.city}}{{restaurant.city}} &nbsp; <a (click)="viewDetail(restaurant)" class="btn btn-primary">Explore</a></p>
+	  </div>
+	</div>
+  </div>

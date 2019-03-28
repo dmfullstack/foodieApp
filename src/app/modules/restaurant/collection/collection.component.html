@@ -1,0 +1,11 @@
+<div class="flex-container">
+  <div class="card text-center" style="width: 20rem;" 
+  *ngFor="let collection of collections">
+    <img class="card-img-top" [src]="collection.image_url" alt="Card image cap"/>
+    <div class="card-body">
+      <h5>{{collection.title}}</h5>
+      <p class="card-text">{{collection.res_count}} places &nbsp; <a (click)="searchRestaurant(collection)" class="btn btn-primary">Explore</a></p>
+      
+    </div>
+  </div>
+</div>

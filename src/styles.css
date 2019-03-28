@@ -1,0 +1,7 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+    font-family: Encode Sans,sans-serif;
+    min-height: 75rem;
+    padding-top: 12rem;
+}
+

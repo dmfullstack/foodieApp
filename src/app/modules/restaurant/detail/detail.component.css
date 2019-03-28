@@ -1,0 +1,16 @@
+
+  .card {
+    margin: auto;
+    height:75%;
+    width:75%;
+    padding:10px;
+    
+    }
+  
+  .btn{
+  margin: 10px;
+  }
+
+  .card-img-top{
+    height:400px;
+  }
